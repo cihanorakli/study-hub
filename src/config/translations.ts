@@ -25,6 +25,19 @@ export interface SiteTranslations {
     workspaceTag: string;
     readyForReview: string;
   };
+  quickContact: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    contactLabel: string;
+    contactPlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    submitButton: string;
+    disclaimer: string;
+  };
   trust: {
     primaryFocus: string;
     pillar1Title: string;
@@ -221,6 +234,19 @@ export const TRANSLATIONS: Record<Language, SiteTranslations> = {
       workspaceTag: 'workspace / architecture_studio_jury_review.dwg',
       readyForReview: 'Ready for Review',
     },
+    quickContact: {
+      badge: 'Direct WhatsApp Support',
+      title: 'Fast Project Inquiry via WhatsApp',
+      subtitle: 'Enter your details below and connect directly with our Sofia academic & project team on WhatsApp.',
+      nameLabel: 'Your Name',
+      namePlaceholder: 'e.g. Alex Johnson',
+      contactLabel: 'Phone or Email',
+      contactPlaceholder: 'e.g. +359 88... or alex@university.edu',
+      messageLabel: 'Project Notes & Requirements',
+      messagePlaceholder: 'Describe what you need (e.g. CAD floor plan cleanup, thesis formatting, 3D model, handwriting)...',
+      submitButton: 'Send via WhatsApp',
+      disclaimer: 'Instantly opens WhatsApp with your inquiry pre-formatted. Active Sofia studio support.',
+    },
     trust: {
       primaryFocus: 'Primary Focus:',
       pillar1Title: 'Built for University Students',
@@ -414,6 +440,19 @@ export const TRANSLATIONS: Record<Language, SiteTranslations> = {
       directContact: 'Директен WhatsApp & Имейл',
       workspaceTag: 'workspace / architecture_studio_jury_review.dwg',
       readyForReview: 'Готово за преглед',
+    },
+    quickContact: {
+      badge: 'Директна WhatsApp връзка',
+      title: 'Бързо запитване по WhatsApp',
+      subtitle: 'Въведете вашите данни и се свържете директно с нашия академичен екип в София по WhatsApp.',
+      nameLabel: 'Вашето име',
+      namePlaceholder: 'напр. Александър Иванов',
+      contactLabel: 'Телефон или Имейл',
+      contactPlaceholder: 'напр. +359 88... или alex@nbu.bg',
+      messageLabel: 'Бележки и изисквания по проекта',
+      messagePlaceholder: 'Опишете накратко вашия проект, срок или специалност (напр. CAD чертеж, дипломна работа, 3D модел)...',
+      submitButton: 'Изпрати през WhatsApp',
+      disclaimer: 'Директно отваря WhatsApp с предварително попълнено съобщение. Бърз отговор.',
     },
     trust: {
       primaryFocus: 'Основен фокус:',
@@ -609,6 +648,19 @@ export const TRANSLATIONS: Record<Language, SiteTranslations> = {
       workspaceTag: 'workspace / architecture_studio_jury_review.dwg',
       readyForReview: 'İncelemeye Hazır',
     },
+    quickContact: {
+      badge: 'Direkt WhatsApp Bağlantısı',
+      title: 'WhatsApp ile Hızlı Proje Talebi',
+      subtitle: 'Bilgilerinizi girin, Sofya akademik ve proje destek ekibimizle anında WhatsApp üzerinden iletişime geçin.',
+      nameLabel: 'Adınız Soyadınız',
+      namePlaceholder: 'örn. Ahmet Yılmaz',
+      contactLabel: 'Telefon veya E-posta',
+      contactPlaceholder: 'örn. +90 538... veya ahmet@universite.edu.tr',
+      messageLabel: 'Mesajınız / Proje Notunuz',
+      messagePlaceholder: 'İhtiyacınızı kısaca yazın (örn. CAD plan çizimi, tez formatlama, 3D modelleme, el yazısı)...',
+      submitButton: 'WhatsApp ile Direkt Gönder',
+      disclaimer: 'Mesajınızı doğrudan WhatsApp üzerinden ekibimize iletir. Hızlı ve doğrudan yanıt.',
+    },
     trust: {
       primaryFocus: 'Öncelikli Odak:',
       pillar1Title: 'Üniversite Öğrencilerine Özel',
@@ -802,6 +854,19 @@ export const TRANSLATIONS: Record<Language, SiteTranslations> = {
       directContact: 'Άμεσο WhatsApp & Email',
       workspaceTag: 'workspace / architecture_studio_jury_review.dwg',
       readyForReview: 'Έτοιμο για Έλεγχο',
+    },
+    quickContact: {
+      badge: 'Άμεση σύνδεση WhatsApp',
+      title: 'Γρήγορο αίτημα μέσω WhatsApp',
+      subtitle: 'Συμπληρώστε τα στοιχεία σας και συνδεθείτε άμεσα με την ακαδημαϊκή ομάδα στη Σόφια μέσω WhatsApp.',
+      nameLabel: 'Το Όνομά σας',
+      namePlaceholder: 'π.χ. Αλέξανδρος Παπαδόπουλος',
+      contactLabel: 'Τηλέφωνο ή Email',
+      contactPlaceholder: 'π.χ. +30 69... ή alex@university.gr',
+      messageLabel: 'Σημειώσεις & Απαιτήσεις Έργου',
+      messagePlaceholder: 'Περιγράψτε συνοπτικά το έργο σας (π.χ. σχέδιο CAD, πτυχιακή, 3D render, χειρόγραφα)...',
+      submitButton: 'Αποστολή μέσω WhatsApp',
+      disclaimer: 'Ανοίγει απευθείας το WhatsApp με προσυμπληρωμένο το αίτημά σας. Άμεση απάντηση.',
     },
     trust: {
       primaryFocus: 'Κύρια Εστίαση:',

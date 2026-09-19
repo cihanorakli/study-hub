@@ -1,8 +1,19 @@
-import React from 'react';
-import { getHeroWorkspaceData } from '../../config/siteData';
+import React, { useState } from 'react';
+import { getHeroWorkspaceData, SITE_CONFIG } from '../../config/siteData';
 import type { Language } from '../../config/translations';
 import { TRANSLATIONS } from '../../config/translations';
-import { ArrowRight, CheckCircle2, Sparkles, Layers, Clock, Shield } from 'lucide-react';
+import {
+  ArrowRight,
+  CheckCircle2,
+  Sparkles,
+  Layers,
+  Clock,
+  Shield,
+  MessageSquare,
+  User,
+  Phone,
+  AlertCircle
+} from 'lucide-react';
 
 interface HeroProps {
   currentLang: Language;
@@ -18,39 +29,91 @@ export const Hero: React.FC<HeroProps> = ({
   const t = TRANSLATIONS[currentLang];
   const heroData = getHeroWorkspaceData(currentLang);
 
+  // Quick WhatsApp Inquiry state
+  const [quickName, setQuickName] = useState('');
+  const [quickContact, setQuickContact] = useState('');
+  const [quickMessage, setQuickMessage] = useState('');
+  const [quickError, setQuickError] = useState('');
+
+  const handleQuickWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!quickName.trim()) {
+      setQuickError(
+        currentLang === 'bg'
+          ? 'Моля, въведете вашето име.'
+          : currentLang === 'tr'
+          ? 'Lütfen adınızı girin.'
+          : currentLang === 'el'
+          ? 'Παρακαλώ εισάγετε το όνομά σας.'
+          : 'Please enter your name.'
+      );
+      return;
+    }
+    if (!quickContact.trim()) {
+      setQuickError(
+        currentLang === 'bg'
+          ? 'Моля, въведете телефон или имейл.'
+          : currentLang === 'tr'
+          ? 'Lütfen telefon veya e-posta girin.'
+          : currentLang === 'el'
+          ? 'Παρακαλώ εισάγετε τηλέφωνο ή email.'
+          : 'Please enter your phone or email.'
+      );
+      return;
+    }
+    setQuickError('');
+
+    const messageLines = [
+      `*🎓 ${SITE_CONFIG.brandName} — QUICK SUPPORT REQUEST*`,
+      `━━━━━━━━━━━━━━━━━━━━`,
+      `*👤 Student / İsim:* ${quickName.trim()}`,
+      `*📞 Contact / İletişim:* ${quickContact.trim()}`,
+      quickMessage.trim()
+        ? `*💬 Project Notes / Notlar:*\n${quickMessage.trim()}`
+        : `*💬 Request:* Academic & Project Support Inquiry`,
+      `━━━━━━━━━━━━━━━━━━━━`,
+    ].join('\n');
+
+    const waBase =
+      SITE_CONFIG.contact.whatsappUrl ||
+      `https://wa.me/${SITE_CONFIG.contact.whatsapp.replace(/[^0-9]/g, '')}`;
+    const targetUrl = `${waBase}?text=${encodeURIComponent(messageLines)}`;
+    window.open(targetUrl, '_blank');
+  };
+
   const readyBadgeText = {
     bg: 'Готово за преглед',
     tr: 'İncelemeye Hazır',
     el: 'Έτοιμο για Έλεγχο',
-    en: 'Ready for Review'
+    en: 'Ready for Review',
   }[currentLang] || 'Ready for Review';
 
   const directSupportText = {
     bg: 'Директна подкрепа през WhatsApp & Email',
     tr: 'WhatsApp & Email ile Doğrudan Destek',
     el: 'Άμεση υποστήριξη μέσω WhatsApp & Email',
-    en: 'Direct support via WhatsApp & Email'
+    en: 'Direct support via WhatsApp & Email',
   }[currentLang] || 'Direct support via WhatsApp & Email';
 
   const quoteTimeText = {
     bg: 'Оферти до 3 часа',
     tr: '3 Saatten Kısa Sürede Teklif',
     el: 'Προσφορές σε < 3 ώρες',
-    en: 'Quotes in < 3 hours'
+    en: 'Quotes in < 3 hours',
   }[currentLang] || 'Quotes in < 3 hours';
 
   const ethicalText = {
     bg: '100% Академична етика',
     tr: '%100 Etik Akademik Destek',
     el: '100% Ηθική Ακαδημαϊκή Υποστήριξη',
-    en: '100% Ethical Academic Support'
+    en: '100% Ethical Academic Support',
   }[currentLang] || '100% Ethical Academic Support';
 
   const directContactText = {
     bg: 'Директен WhatsApp & Email',
     tr: 'Doğrudan WhatsApp & Email',
     el: 'Άμεσο WhatsApp & Email',
-    en: 'Direct WhatsApp & Email'
+    en: 'Direct WhatsApp & Email',
   }[currentLang] || 'Direct WhatsApp & Email';
 
   return (
@@ -62,7 +125,6 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Top Tag / Pill */}
         <div className="flex items-center justify-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-obsidian-850 border border-gray-200 dark:border-gray-800 shadow-subtle mb-6 animate-fade-in">
@@ -125,6 +187,124 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-green-500" />
               <span>{directContactText}</span>
+            </div>
+          </div>
+
+          {/* Quick WhatsApp Inquiry Bubble Card */}
+          <div className="pt-6 max-w-xl mx-auto text-left">
+            <div className="relative rounded-2xl bg-white/90 dark:bg-[#121620]/90 backdrop-blur-md border border-brand-500/25 dark:border-brand-500/30 p-5 sm:p-6 shadow-xl shadow-brand-500/5 hover:border-brand-500/40 transition-all duration-300">
+              
+              {/* Header inside Bubble */}
+              <div className="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-gray-100 dark:border-gray-800/80">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20">
+                    <MessageSquare className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h2 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      {t.quickContact.title}
+                      <span className="text-[9px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 hidden sm:inline-block">
+                        {t.quickContact.badge}
+                      </span>
+                    </h2>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      {t.quickContact.subtitle}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-mono font-medium shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="hidden sm:inline">Online</span>
+                </div>
+              </div>
+
+              {/* Form inputs */}
+              <form onSubmit={handleQuickWhatsAppSubmit} className="space-y-3.5">
+                {quickError && (
+                  <div className="p-2.5 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 text-red-600 dark:text-red-400 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{quickError}</span>
+                  </div>
+                )}
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {/* Name Field */}
+                  <div>
+                    <label className="block text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                      {t.quickContact.nameLabel} <span className="text-red-500">*</span>
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <User className="w-3.5 h-3.5" />
+                      </div>
+                      <input
+                        type="text"
+                        value={quickName}
+                        onChange={(e) => {
+                          setQuickName(e.target.value);
+                          if (quickError) setQuickError('');
+                        }}
+                        placeholder={t.quickContact.namePlaceholder}
+                        className="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-gray-50 dark:bg-[#0A0D12] border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Phone / Email Field */}
+                  <div>
+                    <label className="block text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                      {t.quickContact.contactLabel} <span className="text-red-500">*</span>
+                    </label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <Phone className="w-3.5 h-3.5" />
+                      </div>
+                      <input
+                        type="text"
+                        value={quickContact}
+                        onChange={(e) => {
+                          setQuickContact(e.target.value);
+                          if (quickError) setQuickError('');
+                        }}
+                        placeholder={t.quickContact.contactPlaceholder}
+                        className="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-gray-50 dark:bg-[#0A0D12] border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Message / Project Notes */}
+                <div>
+                  <label className="block text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
+                    {t.quickContact.messageLabel}
+                  </label>
+                  <div className="relative">
+                    <textarea
+                      rows={2}
+                      value={quickMessage}
+                      onChange={(e) => setQuickMessage(e.target.value)}
+                      placeholder={t.quickContact.messagePlaceholder}
+                      className="w-full px-3 py-2 text-xs rounded-xl bg-gray-50 dark:bg-[#0A0D12] border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Submit to WhatsApp Button */}
+                <button
+                  type="submit"
+                  className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-bold text-xs transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-emerald-500/25 flex items-center justify-center gap-2 group cursor-pointer"
+                >
+                  <MessageSquare className="w-4 h-4 fill-white" />
+                  <span>{t.quickContact.submitButton}</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </button>
+
+                {/* Micro Disclaimer */}
+                <p className="text-[10px] text-gray-500 dark:text-gray-400 text-center flex items-center justify-center gap-1.5 pt-0.5">
+                  <Shield className="w-3 h-3 text-emerald-500" />
+                  <span>{t.quickContact.disclaimer}</span>
+                </p>
+              </form>
             </div>
           </div>
         </div>
