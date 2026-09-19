@@ -3,6 +3,7 @@ import { SITE_CONFIG, getDepartments } from '../../config/siteData';
 import type { Language } from '../../config/translations';
 import { TRANSLATIONS } from '../../config/translations';
 import { ArrowUp, Mail, MessageSquare, ShieldCheck } from 'lucide-react';
+import logoImg from '../../assets/logo.png';
 
 interface FooterProps {
   currentLang: Language;
@@ -28,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
               <div className="w-10 h-10 flex items-center justify-center shrink-0">
-                <img src="/logo.png" alt="STUDY HUB Logo" className="w-full h-full object-contain drop-shadow-sm" />
+                <img src={logoImg} alt="STUDY HUB Logo" className="w-full h-full object-contain drop-shadow-sm" />
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-extrabold tracking-tight text-xl text-white">

@@ -3,6 +3,7 @@ import { SITE_CONFIG } from '../../config/siteData';
 import type { Language } from '../../config/translations';
 import { TRANSLATIONS } from '../../config/translations';
 import { Menu, X, ArrowUpRight, Globe } from 'lucide-react';
+import logoImg from '../../assets/logo.png';
 
 interface NavbarProps {
   currentLang: Language;
@@ -63,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-label={`${SITE_CONFIG.brandName} Home`}
           >
             <div className="w-9 h-9 flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
-              <img src="/logo.png" alt="STUDY HUB Logo" className="w-full h-full object-contain drop-shadow-sm" />
+              <img src={logoImg} alt="STUDY HUB Logo" className="w-full h-full object-contain drop-shadow-sm" />
             </div>
             <div className="flex flex-col">
               <span className="font-extrabold tracking-tight text-lg leading-tight text-gray-950 dark:text-white flex items-center gap-1.5">
