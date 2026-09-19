@@ -97,13 +97,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             ))}
           </nav>
 
-          {/* Actions: Language selector & CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            {/* Language Switcher */}
+          {/* Actions: Language selector & Desktop CTA */}
+          <div className="flex items-center gap-2.5">
+            {/* Language Switcher (Visible on all screen sizes) */}
             <div className="relative">
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-200 bg-white/60 dark:bg-obsidian-850 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-200 dark:border-gray-700 shadow-2xs"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-200 bg-white/60 dark:bg-obsidian-850 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border border-gray-200 dark:border-gray-700 shadow-2xs"
                 aria-label="Change Language"
               >
                 <Globe className="w-3.5 h-3.5 text-brand-600 dark:text-brand-400" />
@@ -136,28 +136,19 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            {/* Primary CTA button */}
+            {/* Desktop-only Primary CTA button */}
             <button
               onClick={() => onOpenRequest()}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#0D0F13] text-white hover:bg-brand-600 font-medium text-xs tracking-tight transition-all duration-200 shadow-sm hover:shadow-glow group"
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#0D0F13] text-white hover:bg-brand-600 font-medium text-xs tracking-tight transition-all duration-200 shadow-sm hover:shadow-glow group"
             >
               <span>{t.nav.getSupport}</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <button
-              onClick={() => onOpenRequest()}
-              className="px-3 py-1.5 rounded-lg bg-brand-600 text-white font-medium text-xs"
-            >
-              {t.nav.getSupport}
-            </button>
-
+            {/* Mobile Menu Button (3 lines) */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 focus:outline-none"
+              className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 focus:outline-none lg:hidden"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
