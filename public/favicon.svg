@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- 100% Transparent Background - Vector Mortarboard Cap & Compass Emblem -->
+  <!-- Mortarboard Cap -->
+  <polygon points="24,4 42,13 24,22 6,13" fill="#C5A059"/>
+  <rect x="18" y="21" width="12" height="4" rx="1" fill="#9E7D3B"/>
+  <path d="M11 15.5V23C11 24.5 9.5 25.5 9.5 27" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
+  <!-- Arch/Emblem Base -->
+  <path d="M13 44V31C13 24.925 17.925 20 24 20C30.075 20 35 24.925 35 31V44H13Z" fill="#C5A059"/>
+  <!-- Inner Cutout Circle (Dark) -->
+  <circle cx="24" cy="33" r="8.5" fill="#1A1C20"/>
+  <!-- Compass Needle Diamond -->
+  <polygon points="24,26.5 27.5,33 24,39.5 20.5,33" fill="#C5A059"/>
+  <polygon points="24,26.5 27.5,33 24,33" fill="#DFBC75"/>
+</svg>
