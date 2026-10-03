@@ -1875,7 +1875,7 @@ export const getFAQs = (lang: Language = 'en'): FAQItem[] => {
         id: 'faq-1',
         category: 'general',
         question: 'С какви видове проекти можете да ми помогнете?',
-        answer: 'Помагаме с широк спектър от университетски задачи: 2D/3D архитектурни чертежи, презентационни табла, файлове за лазерно рязане на макети, форматиране на тезиси в Word/PDF, модели и формули в Excel, презентации в PowerPoint, академична редакция, инженерни CAD чертежи и постери.'
+        answer: 'Подкрепяме студенти от всички факултети и специалности — архитектура, строително инженерство, медицина, фармация, инженерство, право, икономика и не само. Помагаме с протоколни доклади, Word задания, PowerPoint презентации, Excel модели, форматиране на дипломни работи, CAD чертежи, A0 табла, анализи на данни и многое друго. Ако имате задание, свържете се с нас — ще намерим решение.'
       },
       {
         id: 'faq-2',
@@ -1938,7 +1938,7 @@ export const getFAQs = (lang: Language = 'en'): FAQItem[] => {
         id: 'faq-1',
         category: 'general',
         question: 'Hangi tür projelerde destek sağlayabiliyorsunuz?',
-        answer: 'Geniş bir yelpazede üniversite ödevlerine destek veriyoruz: 2D/3D mimari çizimler, jüri sunum paftaları, lazer kesim maket dosyaları, Word/PDF tez formatlama, Excel veri modelleri, PowerPoint sunum tasarımı, akademik redaksiyon ve teknik CAD çizimleri.'
+        answer: 'Üniversitenin tüm bölüm ve fakültelerine destek sağlıyoruz — mimarlık, mühendislik, tıp, eczacılık, hukuk, işletme, sosyal bilimler ve daha fazlası. Protokol yazımı, Word ödevleri, PowerPoint sunumları, Excel veri analizleri, tez ve rapor formatlama, teknik CAD çizimleri, A0 paftalar ve veri modelleme konularında yardımcı oluyoruz. Hangi bölümden olursanız olun, ödevinizi birlikte çözelim.'
       },
       {
         id: 'faq-2',
@@ -2001,7 +2001,7 @@ export const getFAQs = (lang: Language = 'en'): FAQItem[] => {
         id: 'faq-1',
         category: 'general',
         question: 'Σε τι είδους εργασίες μπορείτε να βοηθήσετε;',
-        answer: 'Υποστηρίζουμε ένα ευρύ φάσμα πανεπιστημιακών εργασιών: 2D/3D αρχιτεκτονικά σχέδια, πινακίδες παρουσίασης, αρχεία κοπής laser για μακέτες, μορφοποίηση πτυχιακών σε Word/PDF, υπολογιστικά μοντέλα Excel, παρουσιάσεις PowerPoint, ακαδημαϊκή επιμέλεια και σχέδια CAD.'
+        answer: 'Υποστηρίζουμε φοιτητές από όλες τις σχολές και τμήματα — αρχιτεκτονική, μηχανική, ιατρική, φαρμακευτική, νομική, οικονομικά και άλλα. Βοηθάμε με πρωτοκόλλα, εργασίες σε Word, παρουσιάσεις PowerPoint, ανάλυση δεδομένων σε Excel, μορφοποίηση πτυχιακών, CAD σχέδια, πινακίδες A0 και μοντέλα δεδομένων. Όποιο τμήμα κι αν ανήκετε, θα βρούμε λύση μαζί.'
       },
       {
         id: 'faq-2',
@@ -2066,7 +2066,7 @@ export const getFAQs = (lang: Language = 'en'): FAQItem[] => {
       id: 'faq-1',
       category: 'general',
       question: 'What kind of projects can you help with?',
-      answer: 'We assist with a wide spectrum of university work: 2D/3D architecture drawings, presentation boards, physical model laser-cut files, Word/PDF thesis formatting, Excel spreadsheet models, PowerPoint pitch decks, research editing, engineering CAD drafting, and graphic posters.'
+      answer: 'We support students from all university faculties and departments — Architecture, Engineering, Medicine, Pharmacy, Law, Business, Social Sciences, and more. We help with protocol reports, Word assignments, PowerPoint presentations, Excel data analysis, thesis and report formatting, CAD drawings, A0 boards, and data models. Whatever your department, we will find a solution together.'
     },
     {
       id: 'faq-2',
