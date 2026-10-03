@@ -123,9 +123,12 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({ currentLang }) => {
           </div>
 
           <a
-            href={`mailto:${SITE_CONFIG.contact.email}`}
-            className="px-5 py-2.5 rounded-xl bg-[#0D0F13] text-white hover:bg-brand-600 text-xs font-semibold whitespace-nowrap transition-colors"
+            href={SITE_CONFIG.contact.whatsappUrl || `https://wa.me/${SITE_CONFIG.contact.whatsapp.replace(/[^0-9]/g, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold whitespace-nowrap transition-colors flex items-center gap-2"
           >
+            <MessageSquare className="w-3.5 h-3.5" />
             {t.faq.askBtn}
           </a>
         </div>
