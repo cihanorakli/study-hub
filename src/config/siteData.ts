@@ -9,12 +9,13 @@ export const SITE_CONFIG = {
   baseUniversity: 'New Bulgarian University (NBU)',
   logoUrl: '/logo.jpg',
   contact: {
-    email: 'contact@studyhub-sofia.com',
-    whatsapp: '+359 88 000 0000',
-    whatsappUrl: 'https://wa.me/359880000000', // Paste your real WhatsApp link/number here when ready
+    whatsapp: '+359 87 817 7666',
+    whatsappUrl: 'https://wa.me/359878177666',
+    instagramUrl: 'https://www.instagram.com/sofia.studyhub?stkn=MXBtYTY0OWp5YnM1cw%3D%3D&utm_source=qr',
+    instagramHandle: '@sofia.studyhub',
     formspreeOrWebhookUrl: '', // Optional: Web3Forms / Formspree endpoint URL
     responsePromise: 'Under 3 hours on active semester days',
-    workingHours: 'Mon - Sun: 09:00 - 23:00 (EET)'
+    workingHours: '7/24'
   },
   ethicsStatement: 'STUDY HUB provides legitimate academic support, project consultation, layout formatting, technical drafting assistance, and visual presentation design. We do not participate in academic dishonesty or exam-taking on behalf of students.'
 };

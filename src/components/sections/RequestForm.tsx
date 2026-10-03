@@ -111,12 +111,6 @@ ${data.contactHandle ? `*📱 Contact Handle:* ${data.contactHandle}` : ''}
     return `${baseUrl}?text=${text}`;
   };
 
-  const getEmailTransmissionUrl = (data: RequestFormData) => {
-    const subject = encodeURIComponent(`[STUDY HUB Request] ${data.serviceType} — ${data.fullName}`);
-    const body = encodeURIComponent(buildFormattedMessage(data));
-    return `mailto:${SITE_CONFIG.contact.email}?subject=${subject}&body=${body}`;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
@@ -385,13 +379,6 @@ ${data.contactHandle ? `*📱 Contact Handle:* ${data.contactHandle}` : ''}
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
 
-                <a
-                  href={getEmailTransmissionUrl(formData)}
-                  className="px-5 py-3 rounded-xl bg-[#0D0F13] hover:bg-brand-600 text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-sm transition-all"
-                >
-                  <Mail className="w-4 h-4" />
-                  <span>{currentLang === 'bg' ? 'Изпрати по Email' : currentLang === 'tr' ? 'E-posta ile Gönder' : currentLang === 'el' ? 'Αποστολή μέσω Email' : 'Send via Email'}</span>
-                </a>
               </div>
             </div>
 

@@ -2,8 +2,16 @@ import React from 'react';
 import { SITE_CONFIG, getDepartments } from '../../config/siteData';
 import type { Language } from '../../config/translations';
 import { TRANSLATIONS } from '../../config/translations';
-import { ArrowUp, Mail, MessageSquare, ShieldCheck } from 'lucide-react';
+import { ArrowUp, MessageCircle, ShieldCheck } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
+
+const InstagramIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true" className={className}>
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+  </svg>
+);
 
 interface FooterProps {
   currentLang: Language;
@@ -112,20 +120,24 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
             </h4>
             <div className="space-y-3 text-xs text-gray-300">
               <a
-                href={`mailto:${SITE_CONFIG.contact.email}`}
-                className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-brand-400 transition-colors border border-white/5"
+                href={SITE_CONFIG.contact.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow STUDY HUB .SOFIA on Instagram"
+                className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-pink-400 transition-colors border border-white/5"
               >
-                <Mail className="w-4 h-4 text-brand-400 shrink-0" />
-                <span className="truncate">{SITE_CONFIG.contact.email}</span>
+                <InstagramIcon className="w-4 h-4 text-pink-400 shrink-0" />
+                <span>Instagram: {SITE_CONFIG.contact.instagramHandle}</span>
               </a>
 
               <a
                 href={SITE_CONFIG.contact.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Contact STUDY HUB .SOFIA on WhatsApp"
                 className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-green-400 transition-colors border border-white/5"
               >
-                <MessageSquare className="w-4 h-4 text-green-400 shrink-0" />
+                <MessageCircle className="w-4 h-4 text-green-400 shrink-0" />
                 <span>WhatsApp: {SITE_CONFIG.contact.whatsapp}</span>
               </a>
 
@@ -146,8 +158,8 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-gray-300 transition-colors">{t.footer.privacy}</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">{t.footer.terms}</a>
+            <a href="#privacy-policy" className="hover:text-gray-300 transition-colors">{t.footer.privacy}</a>
+            <a href="#terms-of-service" className="hover:text-gray-300 transition-colors">{t.footer.terms}</a>
             <button
               onClick={scrollToTop}
               className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-colors flex items-center gap-1.5"

@@ -13,11 +13,24 @@ import { PricingGuide } from './components/sections/PricingGuide';
 import { Testimonials } from './components/sections/Testimonials';
 import { FAQAccordion } from './components/sections/FAQAccordion';
 import { RequestForm } from './components/sections/RequestForm';
-
+import { LegalPage } from './components/sections/LegalPage';
 
 export const App: React.FC = () => {
   const [currentLang, setCurrentLang] = useState<Language>('en');
   const [prefilledService, setPrefilledService] = useState<string>('Architecture & Spatial Design');
+  const [legalPage, setLegalPage] = useState<'privacy' | 'terms' | null>(() => {
+    if (window.location.hash === '#privacy-policy') return 'privacy';
+    if (window.location.hash === '#terms-of-service') return 'terms';
+    return null;
+  });
+
+  React.useEffect(() => {
+    const updateLegalPage = () => {
+      setLegalPage(window.location.hash === '#privacy-policy' ? 'privacy' : window.location.hash === '#terms-of-service' ? 'terms' : null);
+    };
+    window.addEventListener('hashchange', updateLegalPage);
+    return () => window.removeEventListener('hashchange', updateLegalPage);
+  }, []);
   
 
 
@@ -49,6 +62,7 @@ export const App: React.FC = () => {
         onOpenRequest={(service) => scrollToRequestForm(service)}
       />
 
+      {legalPage ? <LegalPage kind={legalPage} /> : <>
       {/* Main Page Storytelling Sections */}
       <main className="flex-grow">
         {/* 1. Hero */}
@@ -85,6 +99,7 @@ export const App: React.FC = () => {
           prefilledService={prefilledService}
         />
       </main>
+      </>}
 
       {/* Footer */}
       <Footer currentLang={currentLang} />

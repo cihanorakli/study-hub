@@ -350,7 +350,7 @@ export const TRANSLATIONS: Record<Language, SiteTranslations> = {
       title: 'Frequently Asked Questions',
       subtitle: 'Everything you need to know about our student project assistance, file submission, turnaround times, and pricing.',
       unansweredTitle: 'Have a question not answered here?',
-      unansweredDesc: 'Message us directly on WhatsApp or via Email.',
+      unansweredDesc: 'Message us directly on WhatsApp.',
       askBtn: 'Ask a Question',
     },
     form: {
@@ -557,7 +557,7 @@ export const TRANSLATIONS: Record<Language, SiteTranslations> = {
       title: 'Често задавани въпроси',
       subtitle: 'Всичко, което трябва да знаете за нашата подкрепа по проекти, изпращане на файлове, срокове и цени.',
       unansweredTitle: 'Имате въпрос, на който не намирате отговор?',
-      unansweredDesc: 'Пишете ни директно в WhatsApp или по имейл.',
+      unansweredDesc: 'Пишете ни директно в WhatsApp.',
       askBtn: 'Задай въпрос',
     },
     form: {
@@ -764,7 +764,7 @@ export const TRANSLATIONS: Record<Language, SiteTranslations> = {
       title: 'Sıkça Sorulan Sorular',
       subtitle: 'Proje desteğimiz, dosya iletimi, teslim süreleri ve fiyatlandırma hakkında tüm detaylar.',
       unansweredTitle: 'Cevabını bulamadığınız bir sorunuz mu var?',
-      unansweredDesc: 'Bize doğrudan WhatsApp veya E-posta üzerinden ulaşabilirsiniz.',
+      unansweredDesc: 'Bize doğrudan WhatsApp üzerinden ulaşabilirsiniz.',
       askBtn: 'Soru Sor',
     },
     form: {
@@ -971,7 +971,7 @@ export const TRANSLATIONS: Record<Language, SiteTranslations> = {
       title: 'Συχνές Ερωτήσεις',
       subtitle: 'Όλα όσα πρέπει να γνωρίζετε για την υποστήριξη εργασιών, την αποστολή αρχείων, τους χρόνους παράδοσης και τις τιμές.',
       unansweredTitle: 'Έχετε ερώτηση που δεν απαντάται εδώ;',
-      unansweredDesc: 'Στείλτε μας μήνυμα απευθείας στο WhatsApp ή μέσω Email.',
+      unansweredDesc: 'Στείλτε μας μήνυμα απευθείας στο WhatsApp.',
       askBtn: 'Κάντε μια Ερώτηση',
     },
     form: {
