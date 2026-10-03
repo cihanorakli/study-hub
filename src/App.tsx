@@ -1,44 +1,25 @@
 import React, { useState } from 'react';
 import type { Language } from './config/translations';
-import type { PortfolioItem } from './types';
+
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
 
 import { ServicesGrid } from './components/sections/ServicesGrid';
 import { HowItWorks } from './components/sections/HowItWorks';
-import { PortfolioGrid } from './components/sections/PortfolioGrid';
+
 import { WhyUs } from './components/sections/WhyUs';
 import { PricingGuide } from './components/sections/PricingGuide';
 import { Testimonials } from './components/sections/Testimonials';
 import { FAQAccordion } from './components/sections/FAQAccordion';
 import { RequestForm } from './components/sections/RequestForm';
-import { ProjectModal } from './components/ui/Modal';
+
 
 export const App: React.FC = () => {
   const [currentLang, setCurrentLang] = useState<Language>('en');
   const [prefilledService, setPrefilledService] = useState<string>('Architecture & Spatial Design');
   
-  // Modal state
-  const [activeModalData, setActiveModalData] = useState<{
-    isOpen: boolean;
-    title: string;
-    category: string;
-    image: string;
-    description: string;
-    deliverables?: string[];
-    tools?: string[];
-    scope?: string;
-  }>({
-    isOpen: false,
-    title: '',
-    category: '',
-    image: '',
-    description: '',
-    deliverables: [],
-    tools: [],
-    scope: '',
-  });
+
 
   const scrollToRequestForm = (serviceTitle?: string) => {
     if (serviceTitle) {
@@ -57,22 +38,7 @@ export const App: React.FC = () => {
     }
   };
 
-  const openPortfolioModal = (item: PortfolioItem) => {
-    setActiveModalData({
-      isOpen: true,
-      title: item.title,
-      category: item.categoryLabel,
-      image: item.image,
-      description: item.fullDescription,
-      deliverables: item.deliverables,
-      tools: item.tools,
-      scope: item.scope,
-    });
-  };
 
-  const closeModal = () => {
-    setActiveModalData((prev) => ({ ...prev, isOpen: false }));
-  };
 
   return (
     <div className="min-h-screen bg-[#F8F9FA] text-[#0D0F13] flex flex-col font-sans selection:bg-brand-600 selection:text-white">
@@ -102,8 +68,6 @@ export const App: React.FC = () => {
         {/* 4. How It Works (4 Steps) */}
         <HowItWorks currentLang={currentLang} onStartRequest={() => scrollToRequestForm()} />
 
-        {/* 6. Portfolio & Examples Grid */}
-        <PortfolioGrid currentLang={currentLang} onOpenProjectModal={openPortfolioModal} />
 
         {/* 7. Why Students Choose Us */}
         <WhyUs currentLang={currentLang} />
@@ -130,20 +94,7 @@ export const App: React.FC = () => {
       {/* Footer */}
       <Footer currentLang={currentLang} />
 
-      {/* Project Lightbox Modal */}
-      <ProjectModal
-        isOpen={activeModalData.isOpen}
-        currentLang={currentLang}
-        onClose={closeModal}
-        title={activeModalData.title}
-        category={activeModalData.category}
-        image={activeModalData.image}
-        description={activeModalData.description}
-        deliverables={activeModalData.deliverables}
-        tools={activeModalData.tools}
-        scope={activeModalData.scope}
-        onRequestThis={() => scrollToRequestForm(activeModalData.title)}
-      />
+
     </div>
   );
 };
