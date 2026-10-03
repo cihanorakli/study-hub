@@ -5,7 +5,7 @@ import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
 
-import { ServicesGrid } from './components/sections/ServicesGrid';
+
 import { HowItWorks } from './components/sections/HowItWorks';
 
 import { WhyUs } from './components/sections/WhyUs';
@@ -59,11 +59,6 @@ export const App: React.FC = () => {
         />
 
 
-        {/* 3. Services Grid */}
-        <ServicesGrid
-          currentLang={currentLang}
-          onSelectServiceForRequest={(serviceTitle) => scrollToRequestForm(serviceTitle)}
-        />
 
         {/* 4. How It Works (4 Steps) */}
         <HowItWorks currentLang={currentLang} onStartRequest={() => scrollToRequestForm()} />
