@@ -62,7 +62,7 @@ export const App: React.FC = () => {
         onOpenRequest={(service) => scrollToRequestForm(service)}
       />
 
-      {legalPage ? <LegalPage kind={legalPage} /> : <>
+      {legalPage ? <LegalPage kind={legalPage} currentLang={currentLang} /> : <>
       {/* Main Page Storytelling Sections */}
       <main className="flex-grow">
         {/* 1. Hero */}
